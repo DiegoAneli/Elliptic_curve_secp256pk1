@@ -442,3 +442,22 @@ G = S256Point(
 #0xbb14e602ef9e3f872e25fad328466b34e6734b7a0fcd58b1eb635447ffae8cb9
 #>>> 
 
+
+
+class PrivateKey:
+    def __init__(self, secret):
+        self.secret = secret
+        self.point = secret * G
+    def hex(self):
+        return '{:x}'.format(self.secret).zfill(64)
+   
+#>>> from ecc2 import S256Point, PrivateKey 
+#>>> p=PrivateKey('acenno')
+#>>> print(p.__dict__)
+#{'secret': 'acenno'}
+#>>> print(p.__dict__)
+#{'secret': 'acenno'}
+#>>> from ecc2 import S256Point, PrivateKey 
+#>>> p=PrivateKey('acenno')
+#>>> print(p.__dict__)
+#{'secret': 'acenno'}
