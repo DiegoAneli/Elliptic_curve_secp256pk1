@@ -442,7 +442,7 @@ G = S256Point(
 #0xbb14e602ef9e3f872e25fad328466b34e6734b7a0fcd58b1eb635447ffae8cb9
 #>>> 
 
-
+##################PRIVATE KEY##############################
 
 class PrivateKey:
     def __init__(self, secret):
@@ -461,3 +461,35 @@ class PrivateKey:
 #>>> p=PrivateKey('acenno')
 #>>> print(p.__dict__)
 #{'secret': 'acenno'}
+
+
+
+
+
+##############################TARGET############################
+
+#>>> from helper import little_endian_to_int
+#>>> bits = bytes.fromhex('e93c0118')
+#>>> exponent = bits[-1]
+#>>> coefficient = little_endian_to_int(bits[:-1])
+#>>> target = coefficient * 256**(exponent - 3)
+#>>> print('{:x}'.format(target).zfill(64))
+#0000000000000000013ce9000000000000000000000000000000000000000000 ( in formato bit )
+
+
+
+
+
+##########################DIFFICULTY############################
+#>>> from helper import little_endian_to_int
+#>>> bits = bytes.fromhex('e93c0118')
+#>>> exponent = bits[-1]
+#>>> coefficient = little_endian_to_int(bits[:-1])
+#>>> target = coefficient*256**(exponent-3)
+#>>> difficulty = 0xffff * 256**(0x1d-3) / target
+#>>> print(difficulty)
+#888171856257.3206
+
+
+
+
